@@ -1,0 +1,69 @@
+{{title}}
+<!-- property binding ({{value}} interpolation yapısı ) -->
+
+<button (click)="onClick()">Click Me</button>
+<!-- event binding (eventName) --> 
+
+<hr>
+<!-- ngIf sample -->
+<button (click)="visible = !visible">Doma Gir Çık</button>
+<!-- doma yansıtıp yansıtmayacağına karar veren bir directive -->
+<p *ngIf="visible">
+  Summary
+</p>
+<!-- [hidden] domda kalır sadece style diplay none veya display block css uygular -->
+<button (click)="display = !display">Göster Gizle</button>
+<!-- [attribute_name] -->
+<p [hidden]="!display">
+  Summary 2
+</p>
+
+<hr>
+<!-- $event angular template service js de elementlerin eventlerini yakalamamızı sağlar. -->
+<select (change)="city = $any($event.target).value">
+  <option value="izmir">izmir</option>
+  <option value="ankara">ankara</option>
+  <option value="istanbul">istanbul</option>
+</select>
+
+city: {{city}}
+
+<!-- ngSwitch örneği -->
+<div [ngSwitch]="city">
+  <p *ngSwitchCase="'izmir'">Ege bölgesi</p>
+  <p *ngSwitchCase="'ankara'">İç anadolu bölgesi</p>
+  <p *ngSwitchCase="'istanbul'">marmara bölgesi</p>
+</div>
+
+
+<!-- template *ngIf -->
+<!-- # hashtag template referance verir -->
+
+<div *ngIf="visible then temp1;else temp2;"></div>
+
+<ng-template #temp1>
+  <p>Template 1</p>
+</ng-template>
+
+<ng-template #temp2>
+  <p>Template 2</p>
+</ng-template>
+
+<!-- hr -->
+<!-- genelde bir çok yerde css kullanılacak ise tavsiye edilmez -->
+<hr>
+<div [ngStyle]="{'background-color':'red','color':'blue'}">
+  Ng Style
+</div>
+<!-- ngClass durum bazlı class vermemizi sağlar -->
+<div [ngClass]="visible ? 'active':'passive'">
+  NgClass
+</div>
+
+<!-- [style] attribute ile stil uygulama -->
+
+<div [style.color]="'red'" [style.fontSize]="'24px'">Style Attribute Yöntemi</div>
+
+
+
+<!-- *ngIf , *ngFor, ngSwich, ngStyle, ngClass -->

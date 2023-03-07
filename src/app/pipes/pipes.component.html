@@ -1,0 +1,20 @@
+
+<!-- https://angular.io/api/common/TitleCasePipe -->
+
+<div>
+  <p>
+    Sipariş Tarihi : {{order.orderDate | date:'short'}}
+  </p>
+  <p>
+    Durum: {{order.status | orderStatus}}
+  </p>
+  <p>
+    Tutar: {{order.cost | currency:'₺'}}
+  </p>
+  <p>
+    Müşteri : {{order.firstname | lowercase}} {{order.lastname | uppercase}}
+  </p>
+  <p>
+    Müşteri : {{order.firstname | titlecase}}  {{order.lastname | uppercase}}
+  </p>
+</div>
